@@ -31,13 +31,13 @@ Touch the walls or a block and it’s **game over**.
 
 ## Settings
 ### Difficulty
-Choose **Beginner / Normal / Advanced**. Impacts scroll speed and scoring rate.
+Choose **Beginner / Normal / Advanced**. Increases the speed of the game/
 
 ### Block Density
-Choose **Normal (1×)**, **High (0.7×)**, or **Extreme (0.5×)**. Higher density means **tighter obstacle spacing** and more pressure. (Applies on the next reset/run.)
+Choose **Normal (1×)**, **High (0.7×)**, or **Extreme (0.5×)**. Higher density means **tighter obstacle spacing** and more pressure.
 
-### Wall Steepness (slider)
-A live slider (visible only on the Settings screen) that shifts the **slope/steepness of the polygonal walls**. Useful for tuning how aggressively the tunnel meanders.
+### Wall Steepness
+Flatten or increase the steepness of the cave walls.
 
 
 ## Roadmap
