@@ -212,8 +212,8 @@ const errBox = document.getElementById('err');
   const randi=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
 
   const wallColor = getComputedStyle(document.documentElement).getPropertyValue('--wall').trim() || '#223055';
-  const gapHeight=345, gravity=0.35, thrust=-0.7, baseSpeed=7;
-  const obstacleWidth=65, obstacleHeight=135, obstacleGapX=320;
+  let gapHeight=Math.floor(345*1.10), gravity=0.35, thrust=-0.7, baseSpeed=7;
+const obstacleWidth=65, obstacleHeight=135, obstacleGapX=320;
 
   let gameState='start', canRestartAt=0, selectedDifficulty=1; // states: start, running, paused, gameOver, settings
   const difficulties=[{name:'Beginner',mult:0.5},{name:'Normal',mult:1.0},{name:'Advanced',mult:1.5}];
@@ -1034,16 +1034,25 @@ if (scoreAcc >= 1){ const inc = Math.floor(scoreAcc); score += inc; scoreAcc -= 
   for(const o of obstacles){
     if(px < o.x+obstacleWidth && px+pw > o.x && py < o.y+obstacleHeight && py+ph > o.y) return true;
   }
-  // Tunnel collision: sample gap at both player edges; this matches the drawn walls
-  // so we end the game exactly when the rectangle touches the wall (no early/late triggers)
-  const gL = gapAtX(Math.max(0, Math.min(WORLD_W-1, px)));
-  const gR = gapAtX(Math.max(0, Math.min(WORLD_W-1, px+pw)));
-  const topY    = Math.min(gL.top, gR.top);
-  const bottomY = Math.max(gL.bottom, gR.bottom);
-  if (py <= topY) return true;           // touching/above top wall
-  if (py+ph >= bottomY) return true;     // touching/below bottom wall
+  // Tunnel collision over sloped walls:
+  // Top: collide if py <= max(topY(x)) over player's horizontal span
+  // Bottom: collide if py+ph >= min(bottomY(x)) over span
+  const step = Math.max(1, Math.floor(pw / 6));
+  const samples = Math.min(33, Math.max(5, Math.floor(pw/step) + 1));
+  const tol = 1; let topMax = -Infinity, bottomMin = Infinity;
+  for(let i=0;i<samples;i++){
+    const t = i/(samples-1);
+    const x = Math.max(0, Math.min(WORLD_W-1, px + t*pw));
+    const g = gapAtX(x);
+    if (g.top > topMax) topMax = g.top;
+    if (g.bottom < bottomMin) bottomMin = g.bottom;
+  }
+  if (py <= topMax - tol) return true;
+  if (py+ph >= bottomMin + tol) return true;
   return false;
 }
+
+
 
 
   const screenToWorld=(px,py)=>({x:(px-viewX)/worldScale, y:(py-viewY)/worldScale});
