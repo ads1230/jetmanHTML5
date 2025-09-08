@@ -1,13 +1,11 @@
 # Jetman
 
-A fast, one‑thumb, portrait‑mode HTML5 arcade twist on the traditional helicopter game.
-Navigate Jetman through the cave walls whilst dodging floating obstacles.
-Touch the walls or a block and it’s **game over**.
+A fast moving, one‑thumb, HTML5 arcade twist on the traditional helicopter game.
+Navigate Jetman through the cave walls whilst dodging floating obstacles. Touch either and it’s **game over**.
 
 ## Objective
-- **Survive** as long as possible by threading the tunnel and avoiding all obstacles.
-- **Score** accumulates automatically over time (faster on higher difficulties).
-- Beat your **High Score** (saved locally in your browser).
+- **Survive** as long as possible by threading through the tunnel and avoiding all obstacles.
+- Your **score** accumulates automatically over time (faster on higher difficulties). Challenge yourself with every run to beat your previous **high score**.
 
 <p align="center">
   <img src="screenshot.png" alt="Jetman screenshot" width="480" />
@@ -20,32 +18,19 @@ Touch the walls or a block and it’s **game over**.
 * **Live demo:** [*PLAY NOW*](https://htmlpreview.github.io/?https://github.com/ads1230/jetmanHTML5/blob/main/jetman.html)
 
 ## Controls
-**Desktop**
-- **Space** — thrust (also starts the game)
-- **Mouse click** (on canvas) — thrust / tap UI buttons
+**Desktop** - Press **Space** or click with mouse — to climb, release to decend
+**Mobile/Touch** - **Tap & hold** to climb
 
-**Mobile/Touch**
-- **Tap & hold** — thrust
-- **Tap** — start on the Start screen; press on‑screen text buttons (Settings, Retry, Home)
 > Tip: releasing Space/touch immediately cuts thrust. Feather it to hover mid‑gap.
 
 ## Settings
-### Difficulty
-Choose **Beginner / Normal / Advanced**. Increases the speed of the game/
-
-### Block Density
-Choose **Normal (1×)**, **High (0.7×)**, or **Extreme (0.5×)**. Higher density means **tighter obstacle spacing** and more pressure.
-
-### Wall Steepness
-Flatten or increase the steepness of the cave walls.
+**Difficulty** - Choose **Beginner / Normal / Advanced**. Increases the speed of the game.
+**Block Density** - Choose **Normal**, **High**, or **Extreme**. Higher density means tighter obstacle spacing.
+**Wall Steepness** - Flatten or increase the steepness of the cave walls.
 
 
 ## Roadmap
-
-* [x] Centered passage (equal wall sizes)
-* [x] Polygonal walls (non‑flat)
-* [x] Obstacles avoid wall envelope
-* [ ] Extra juice: camera shake & particles
-* [ ] Power‑ups and difficulty ramp
+* [ ] Camera shake & particles on crash
+* [ ] Power‑ups and difficulty ramp as you progress
 * [ ] Touch UI polish & haptics
 * [ ] Soundtrack + mute toggle
